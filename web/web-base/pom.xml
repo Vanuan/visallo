@@ -86,6 +86,7 @@
                     <installDirectory>${frontend.installDirectory}</installDirectory>
                 </configuration>
                 <executions>
+<!--
                     <execution>
                         <id>install-node-and-yarn</id>
                         <goals>
@@ -96,6 +97,7 @@
                             <yarnVersion>${yarnjs.version}</yarnVersion>
                         </configuration>
                     </execution>
+-->
                 </executions>
             </plugin>
         </plugins>

@@ -128,7 +128,6 @@
     <owl:DatatypeProperty rdf:about="http://visallo.org/sample#domainName">
         <rdfs:domain rdf:resource="http://visallo.org/sample#website"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:label>Domain name</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -196,8 +195,6 @@
     <owl:DatatypeProperty rdf:about="http://visallo.org/sample#name">
         <rdfs:domain rdf:resource="http://visallo.org/sample#company"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <visallo:userVisible rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</visallo:userVisible>
-        <rdfs:label>Name</rdfs:label>
     </owl:DatatypeProperty>
     
 

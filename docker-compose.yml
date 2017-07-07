@@ -1,0 +1,32 @@
+version: '3'
+services:
+  visallo:
+    image: 'maven:3-jdk-8-alpine'
+    volumes:
+      - .:/src
+    working_dir: '/src'
+    command: 'mvn -am -pl dev/tomcat-server -P dev-tomcat-run compile'
+    ports:
+      - 127.0.0.1:8889:8889
+      - 127.0.0.1:8888:8888
+  webapp:
+    build: 'docker/node/'
+    volumes:
+      - ./web/war/src/main/webapp/:/src
+      - ./web/war/src/main/webapp/tmp/yarn-cache:/usr/local/share/.cache/yarn/v1
+      - ./.eslintrc.js:/src/.eslintrc.js
+    command: sh -c 'yarn && grunt'
+  s3:
+    build: 'docker/node/'
+    volumes:
+      - ./web/plugins/ingest-cloud-s3/src/main/resources/org/visallo/web/ingest/cloud/s3:/src
+      - ./web/plugins/ingest-cloud-s3/src/main/resources/org/visallo/web/ingest/cloud/s3/tmp/yarn-cache:/usr/local/share/.cache/yarn/v1
+      - ./.eslintrc.js:/src/.eslintrc.js
+    command: sh -c 'yarn && webpack'
+  product-graph:
+    build: 'docker/node/'
+    volumes:
+      - ./web/plugins/graph-product/src/main/resources/org/visallo/web/product/graph/:/src
+      - ./web/plugins/graph-product/src/main/resources/org/visallo/web/product/graph/tmp/yarn-cache:/usr/local/share/.cache/yarn/v1
+      - ./.eslintrc.js:/src/.eslintrc.js
+    command: sh -c 'yarn && webpack'

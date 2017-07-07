@@ -15,6 +15,7 @@
 
     <build>
         <plugins>
+<!--
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -63,6 +64,10 @@
                     </filesets>
                 </configuration>
             </plugin>
+          <plugin>
+
+          </plugin>
+-->
         </plugins>
     </build>
 </project>
